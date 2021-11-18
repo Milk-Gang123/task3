@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QWidget):
     def draw(self):
         if self.a == 1:
             for i in self.dim:
-                self.qp.setBrush(QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
+                self.qp.setBrush(QColor(i[3], i[4], i[5]))
                 self.qp.drawEllipse(i[1], i[2], i[0], i[0])
         self.update()  #1
 
@@ -48,6 +48,9 @@ class MainWindow(QtWidgets.QWidget):
             y = random.randint(30, 600 - 2 * self.dim[i][0])
             self.dim[i].append(x)
             self.dim[i].append(y)
+            self.dim[i].append(random.randint(0, 255))
+            self.dim[i].append(random.randint(0, 255))
+            self.dim[i].append(random.randint(0, 255))
 
 
 app = QtWidgets.QApplication(sys.argv)
